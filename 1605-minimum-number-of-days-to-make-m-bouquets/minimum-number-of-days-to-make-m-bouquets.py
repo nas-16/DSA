@@ -17,6 +17,8 @@ class Solution(object):
 
 
     def minDays(self, bloomDay, m, k):
+        if m*k > len(bloomDay) :
+            return -1
         low = min(bloomDay)
         high = max(bloomDay)
         ans = -1
