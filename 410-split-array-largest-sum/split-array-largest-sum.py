@@ -1,21 +1,21 @@
 class Solution(object):
-    def no_students(self,nums,mid) :
+    def possibleSubarrays(self,nums,mid) :
         cnt = 1
-        pages = 0
+        sum = 0
         for i in range(len(nums)):
-            if pages + nums[i] <= mid:
-                pages += nums[i]
+            if sum + nums[i] <= mid:
+                sum += nums[i]
             else :
                 cnt += 1
-                pages = nums[i]
+                sum = nums[i]
         return cnt
     def splitArray(self, nums, k):
         low = max(nums)
         high = sum(nums)
         while(low <= high):
             mid = (low + high) // 2
-            students = self.no_students(nums,mid)
-            if students > k :
+            no_subarrys = self.possibleSubarrays(nums,mid)
+            if no_subarrys > k :
                 low = mid + 1
             else :
                 high = mid - 1
